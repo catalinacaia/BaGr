@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>BaGr (Badge Generator)</title>
+  <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
+</head>
+	
+<body>
+<div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <h1><a href="index.html">BaGr (Badge Generator)<span class="logo_colour"></span></a></h1>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="despre.html">Despre</a></li>
+          <li class="selected"><a href="creare.html">Creare</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+<div id="site_content">
+<!--Formular de completare date-->
+<div id="wrapper">
+<form id="passes">
+		 Creaza ecuson:<br><br>
+
+		  Nume:<br> <input type="text" id="nume" value="" /><br>
+                  Prenume:<br> <input type="text" id="prenume" value="" /><br>
+                  Sex:<br> <div class="select-wrapper">
+			                  <select name="sex" id="sex">
+				                 <option value="">- Sexul -</option>
+				                 <option value="feminin">feminin</option>
+			               	         <option value="masculin">masculin</option>
+			                  </select>
+			                 </div>
+                  Rol: <div class="select-wrapper">
+			                  <select name="rol" id="rol">
+				                 <option value="">- Rolul -</option>
+				                 <option value="Vizitator">Vizitator</option>
+			               	         <option value="Stagiar">Stagiar</option>
+				                 <option value="Personal administrativ">Personal administrativ</option>
+				                 <option value="Participant">Participant</option>
+				                 <option value="Invitat special">Invitat special</option>
+				                 <option value="Profesor">Profesor</option>
+				                 <option value="Student">Student</option>
+				                 <option value="Elev">Elev</option>
+			                  </select>
+			                 </div>
+                   Culoarea text: <div class="select-wrapper">
+			                  <select name="cul" id="cul">
+				                 <option value="">- Culoarea textului -</option>
+				                 <option value="red">Rosu</option>
+			               	   <option value="blue">Albastru</option>
+				                 <option value="black">Negru</option>
+			                  </select>
+			                 </div>
+                   Font text: <div class="select-wrapper">
+			                  <select name="font" id="font">
+				                 <option value="">- Font text -</option>
+				                 <option value="15px Arial">Arial</option>
+			               	   <option value="15px Times New Roman">Times New Roman</option>
+				                 <option value="15px Georgia">Georgia</option>
+                         <option value="15px Comic Sans MS">Comic Sans MS</option>
+			               	   <option value="15px Lucida Sans Unicode">Lucida Sans Unicode</option>
+				                 <option value="15px Courier New">Courier New</option>
+			                  </select>
+			                 </div>
+</form>
+<button type="button" onclick="create()">Creaza</button><br><br>
+
+<!-- Incarcare fisier cu date pentru ecusoane -->
+<form action="uploadtxt.php" method="post" enctype="multipart/form-data">
+    Selectati fisierul cu datele pentru ecusoane (format acceptat .txt):
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Fisier" name="submit">
+</form><br><br>
+<button type="button" onclick="create()">Creaza ecusoane</button><br><br>
+	
+</div>
+<!--Afisarea ecusonului-->
+<div id="rightcol">
+<canvas id="canvas" width="250" height="380" style="border:1px solid #000000;">
+</canvas>
+<button onclick="stergedate()">Creaza alt ecuson</button>
+<button onclick="SaveEcuson()">Descarca Ecuson</button>
+
+<!--Formular incarcare logo-->
+<form action="uploadimg.php" method="post" enctype="multipart/form-data">
+    Selectati logo (format acceptat .jpg):
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Logo" name="submit">
+</form>
+
+<button type="button" onclick="incarcalogo()">Incarca Logo</button><br><br>
+</div>
+
+<!--Functia de incarcare a logo-ului in canvas-->
+<script>
+var canvas = document.getElementById('canvas'),
+context = canvas.getContext('2d');
+
+make_base();
+
+function incarcalogo()
+{
+  logo_image = new Image();
+  logo_image.src = 'uploads/logo.jpg';
+  logo_image.onload = function(){
+    context.drawImage(logo_image, 10, 10, 40, 40);
+  }
+}
+</script>
+
+<!--Functia de salvare a ecusonului-->
+<script>
+function SaveEcuson() {
+		var link = document.createElement('a');
+                link.download = "ecuson.jpg";
+                link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+                link.click();
+		      }
+</script>
+
+<!--Sterge datele din ecuson pentru a se putea crea altul-->
+<script>
+function stergedate() {
+    location.reload();
+}
+</script>
+
+<!--Creaza ecusonul-->
+<script>
+var c = document.getElementById("canvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = '#fff';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Create gradient
+var grd = ctx.createLinearGradient(10,10,200,0);
+grd.addColorStop(0,"#00BFFF");
+ctx.lineWidth = 2;
+// Fill with gradient
+ctx.fillStyle = grd;
+ctx.fillRect(0,60,250,70);
+ctx.font = "30px Comic Sans MS";
+ctx.fillStyle = 'black';
+ctx.strokeText("PASS: ", 80, 110);
+</script>
+
+<!--Completeaza datele in ecuson-->
+<script>
+function create() {
+
+    var canvas = document.getElementById("canvas");
+    var context = canvas.getContext("2d");
+   
+    context.font = document.getElementById("font").value;
+    ctx.fillStyle = document.getElementById("cul").value;
+    context.fillText("Nume: ", 30, 230);
+    context.fillText(document.getElementById("nume").value, 150, 230);
+    context.fillText("Prenume: ", 30, 250);
+    context.fillText(document.getElementById("prenume").value, 150, 250);
+    context.fillText("Sex: ", 30, 270);
+    context.fillText(document.getElementById("sex").value, 150, 270);
+    context.fillText("Rol: ", 30, 290);
+    context.fillText(document.getElementById("rol").value, 150, 290);
+}
+</script>
+
+</div>
+</div>
+</body>
+</html>
