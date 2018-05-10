@@ -3,17 +3,17 @@ $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
+// Check if csv file is a actual csv or fake csv
 if(isset($_POST["submit"])) {
 include("creare.html");
-    $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-	$new_name = "uploads/".dateecusoane.".txt";
+    $tmp_name = $_FILES["csv"]["tmp_name"];
+	$new_name = "uploads/".test.".csv";
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        //echo "File is an image - " . $check["mime"] . ".";
+        //echo "File is an csv - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "File is not an csv.";
         $uploadOk = 0;
     }
 }
