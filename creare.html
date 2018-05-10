@@ -29,7 +29,7 @@
 <form id="passes">
 		 Creaza ecuson:<br><br>
 
-		  Nume:<br> <input type="text" id="nume" value="" /><br>
+		          Nume:<br> <input type="text" id="nume" value="" /><br>
                   Prenume:<br> <input type="text" id="prenume" value="" /><br>
                   Sex:<br> <div class="select-wrapper">
 			                  <select name="sex" id="sex">
@@ -55,7 +55,7 @@
 			                  <select name="cul" id="cul">
 				                 <option value="">- Culoarea textului -</option>
 				                 <option value="red">Rosu</option>
-			               	   <option value="blue">Albastru</option>
+			               	     <option value="blue">Albastru</option>
 				                 <option value="black">Negru</option>
 			                  </select>
 			                 </div>
@@ -63,31 +63,34 @@
 			                  <select name="font" id="font">
 				                 <option value="">- Font text -</option>
 				                 <option value="15px Arial">Arial</option>
-			               	   <option value="15px Times New Roman">Times New Roman</option>
+			               	     <option value="15px Times New Roman">Times New Roman</option>
 				                 <option value="15px Georgia">Georgia</option>
-                         <option value="15px Comic Sans MS">Comic Sans MS</option>
-			               	   <option value="15px Lucida Sans Unicode">Lucida Sans Unicode</option>
+                                 <option value="15px Comic Sans MS">Comic Sans MS</option>
+			               	     <option value="15px Lucida Sans Unicode">Lucida Sans Unicode</option>
 				                 <option value="15px Courier New">Courier New</option>
 			                  </select>
 			                 </div>
+				   Format ecuson: <div class="select-wrapper">
+				                    <select name="format" id="format">
+							           <option value="">- Format ecuson -</option>
+							           <option value="portrait">Portrait</option>
+				                       <option value="landscape">Landscape</option>
+			                        </select>
+								  </div>
+				   Still text Pass: <div class="select-wrapper">
+				                    <select name="stil" id="stil">
+							           <option value="">- Still text Pass -</option>
+							           <option value="stil1">Stil1</option>
+				                       <option value="stil2">Stil2</option>
+									   <option value="stil3">Stil3</option>
+									   <option value="stil4">Stil4</option>
+									   <option value="stil5">Stil5</option>
+									   <option value="stil6">Stil6</option>
+			                        </select>
+								  </div>
 </form>
+<br><br>
 <button type="button" onclick="create()">Creaza</button><br><br>
-
-<!-- Incarcare fisier cu date pentru ecusoane -->
-<form action="uploadtxt.php" method="post" enctype="multipart/form-data">
-    Selectati fisierul cu datele pentru ecusoane (format acceptat .txt):
-    <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="submit" value="Upload Fisier" name="submit">
-</form><br><br>
-<button type="button" onclick="create()">Creaza ecusoane</button><br><br>
-	
-</div>
-<!--Afisarea ecusonului-->
-<div id="rightcol">
-<canvas id="canvas" width="250" height="380" style="border:1px solid #000000;">
-</canvas>
-<button onclick="stergedate()">Creaza alt ecuson</button>
-<button onclick="SaveEcuson()">Descarca Ecuson</button>
 
 <!--Formular incarcare logo-->
 <form action="uploadimg.php" method="post" enctype="multipart/form-data">
@@ -95,33 +98,78 @@
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload Logo" name="submit">
 </form>
+<br><br>
+	
 
-<button type="button" onclick="incarcalogo()">Incarca Logo</button><br><br>
+<!--Afisarea ecusonului-->
+
+<canvas id="canvas1" width="250" height="380" style="border:1px solid #000000;">
+</canvas>
+<br><br>
+<button onclick="stergedate()">Creaza alt ecuson</button>
+<button onclick="SaveEcuson1()">Descarca Ecuson</button>
+<button type="button" onclick="incarcalogo1()">Incarca Logo</button>
+<br><br>
+<canvas id="canvas2" width="380" height="230" style="border:1px solid #000000;">
+</canvas>
+<br><br>
+<button onclick="stergedate()">Creaza alt ecuson</button>
+<button onclick="SaveEcuson2()">Descarca Ecuson</button>
+<button type="button" onclick="incarcalogo2()">Incarca Logo</button>
+
+
 </div>
 
-<!--Functia de incarcare a logo-ului in canvas-->
+<!--Functia de incarcare a logo-ului in canvas portrait-->
 <script>
-var canvas = document.getElementById('canvas'),
+var canvas = document.getElementById('canvas1'),
 context = canvas.getContext('2d');
 
 make_base();
 
-function incarcalogo()
+function incarcalogo1()
 {
   logo_image = new Image();
   logo_image.src = 'uploads/logo.jpg';
   logo_image.onload = function(){
-    context.drawImage(logo_image, 10, 10, 40, 40);
+  context1.drawImage(logo_image, 10, 10, 40, 40);
   }
 }
 </script>
 
-<!--Functia de salvare a ecusonului-->
+<!--Functia de incarcare a logo-ului in canvas landscape-->
 <script>
-function SaveEcuson() {
+var canvas = document.getElementById('canvas2'),
+context = canvas.getContext('2d');
+
+make_base();
+
+function incarcalogo2()
+{
+  logo_image = new Image();
+  logo_image.src = 'uploads/logo.jpg';
+  logo_image.onload = function(){
+  context.drawImage(logo_image, 10, 10, 40, 40);
+  }
+}
+</script>
+
+<!--Functia de salvare a ecusonului portrait-->
+<script>
+function SaveEcuson1() {
 		var link = document.createElement('a');
                 link.download = "ecuson.jpg";
-                link.href = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+                link.href = canvas1.toDataURL("image/png").replace("image/png", "image/octet-stream");;
+                link.click();
+		      }
+</script>
+
+<!--Functia de salvare a ecusonului landscape-->
+<script>
+function SaveEcuson2() {
+		var link = document.createElement('a');
+                link.download = "ecuson.jpg";
+                link.href = canvas2.toDataURL("image/png").replace("image/png", "image/octet-stream");;
                 link.click();
 		      }
 </script>
@@ -133,45 +181,126 @@ function stergedate() {
 }
 </script>
 
-<!--Creaza ecusonul-->
+<!--Creaza ecusonul portrait-->
 <script>
-var c = document.getElementById("canvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = '#fff';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+var c = document.getElementById("canvas1");
+var context = c.getContext("2d");
+context.fillStyle = '#fff';
+context.fillRect(0, 0, canvas.width, canvas.height);
 // Create gradient
-var grd = ctx.createLinearGradient(10,10,200,0);
+var grd = context.createLinearGradient(10,10,200,0);
 grd.addColorStop(0,"#00BFFF");
-ctx.lineWidth = 2;
+context.lineWidth = 2;
 // Fill with gradient
-ctx.fillStyle = grd;
-ctx.fillRect(0,60,250,70);
-ctx.font = "30px Comic Sans MS";
-ctx.fillStyle = 'black';
-ctx.strokeText("PASS: ", 80, 110);
+context.fillStyle = grd;
+context.fillRect(0,60,250,70);
+context.font = "30px Comic Sans MS";
+context.fillStyle = 'black';
+context.strokeText("PASS: ", 80, 110);
+</script>
+
+<!--Creaza ecusonul landscape-->
+<script>
+var c = document.getElementById("canvas2");
+var context = c.getContext("2d");
+context.fillStyle = '#fff';
+context.fillRect(0, 0, canvas.width, canvas.height);
+// Create gradient
+var grd = context.createLinearGradient(10,10,200,0);
+grd.addColorStop(0,"#00BFFF");
+context.lineWidth = 2;
+// Fill with gradient
+context.fillStyle = grd;
+context.fillRect(0,30,380,70);
+context.font = "30px Comic Sans MS";
+context.fillStyle = 'black';
+context.strokeText("PASS: ", 140, 80);
 </script>
 
 <!--Completeaza datele in ecuson-->
 <script>
 function create() {
 
-    var canvas = document.getElementById("canvas");
-    var context = canvas.getContext("2d");
+    var canvas1 = document.getElementById("canvas1");
+    var context1 = canvas1.getContext("2d");
+	var canvas2 = document.getElementById("canvas2");
+    var context2 = canvas2.getContext("2d");
    
-    context.font = document.getElementById("font").value;
-    ctx.fillStyle = document.getElementById("cul").value;
-    context.fillText("Nume: ", 30, 230);
-    context.fillText(document.getElementById("nume").value, 150, 230);
-    context.fillText("Prenume: ", 30, 250);
-    context.fillText(document.getElementById("prenume").value, 150, 250);
-    context.fillText("Sex: ", 30, 270);
-    context.fillText(document.getElementById("sex").value, 150, 270);
-    context.fillText("Rol: ", 30, 290);
-    context.fillText(document.getElementById("rol").value, 150, 290);
+   if(document.getElementById("format").value == "portrait") {
+        context1.font = document.getElementById("font").value;
+        context1.fillStyle = document.getElementById("cul").value;
+        context1.fillText("Nume: ", 30, 230);
+        context1.fillText(document.getElementById("nume").value, 150, 230);
+        context1.fillText("Prenume: ", 30, 250);
+        context1.fillText(document.getElementById("prenume").value, 150, 250);
+        context1.fillText("Sex: ", 30, 270);
+        context1.fillText(document.getElementById("sex").value, 150, 270);
+        context1.fillText("Rol: ", 30, 290);
+        context1.fillText(document.getElementById("rol").value, 150, 290);}
+	  else {
+	     context2.font = document.getElementById("font").value;
+         context2.fillStyle = document.getElementById("cul").value;
+         context2.fillText("Nume: ", 40, 130);
+         context2.fillText(document.getElementById("nume").value, 160, 130);
+         context2.fillText("Prenume: ", 40, 150);
+         context2.fillText(document.getElementById("prenume").value, 160, 150);
+         context2.fillText("Sex: ", 40, 170);
+         context2.fillText(document.getElementById("sex").value, 160, 170);
+         context2.fillText("Rol: ", 40, 190);
+         context2.fillText(document.getElementById("rol").value, 160, 190);}
 }
 </script>
+<br><br><br><br>
+<form id="passes2">  
+            Creaza mai multe ecusoane folosind un document .csv:<br><br>
+	               Culoarea text: <div class="select-wrapper">
+			                  <select name="cul" id="cul">
+				                 <option value="">- Culoarea textului -</option>
+				                 <option value="red">Rosu</option>
+			               	     <option value="blue">Albastru</option>
+				                 <option value="black">Negru</option>
+			                  </select>
+			                 </div>
+                   Font text: <div class="select-wrapper">
+			                  <select name="font" id="font">
+				                 <option value="">- Font text -</option>
+				                 <option value="15px Arial">Arial</option>
+			               	     <option value="15px Times New Roman">Times New Roman</option>
+				                 <option value="15px Georgia">Georgia</option>
+                                 <option value="15px Comic Sans MS">Comic Sans MS</option>
+			               	     <option value="15px Lucida Sans Unicode">Lucida Sans Unicode</option>
+				                 <option value="15px Courier New">Courier New</option>
+			                  </select>
+			                 </div>
+				   Format ecuson: <div class="select-wrapper">
+				                    <select name="format" id="format">
+							           <option value="">- Format ecuson -</option>
+							           <option value="portrait">Portrait</option>
+				                       <option value="landscape">Landscape</option>
+			                        </select>
+								  </div>
+				   Still text Pass: <div class="select-wrapper">
+				                    <select name="stil" id="stil">
+							           <option value="">- Still text Pass -</option>
+							           <option value="stil1">Stil1</option>
+				                       <option value="stil2">Stil2</option>
+									   <option value="stil3">Stil3</option>
+									   <option value="stil4">Stil4</option>
+									   <option value="stil5">Stil5</option>
+									   <option value="stil6">Stil6</option>
+			                        </select>
+								  </div>
+</form>
+<!-- Incarcare fisier cu date pentru ecusoane -->
+<form action="uploadtxt.php" method="post" enctype="multipart/form-data">
+    Selectati fisierul cu datele pentru ecusoane (format acceptat .txt):
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <input type="submit" value="Upload Fisier" name="submit">
+</form><br><br>
+<button type="button" onclick="creare.php">Creaza ecusoane</button><br><br>
 
 </div>
 </div>
+
 </body>
 </html>
