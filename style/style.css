@@ -2,8 +2,13 @@ html
 { height: 100%;}
 
 *
-{ margin: 0;
-  padding: 0;}
+{
+  margin: 5px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 5px;
+  }
 
 body
 { font: normal .80em 'trebuchet ms', arial, sans-serif;
@@ -244,4 +249,56 @@ width: 960px;
 background-color: #FFF;
 margin-left:auto;
 margin-right:auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.autocomplete {
+  /*the container must be positioned relative:*/
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  /*when hovering an item:*/
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  /*when navigating through the items using the arrow keys:*/
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
+.button {
+        display: inline-block;
+        padding: 3px 5px;
+        border: 1px solid #000;
+        background: #eee;
 }
