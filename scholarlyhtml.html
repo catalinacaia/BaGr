@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Scholarly HTML</title>
+    <link rel="stylesheet" type="text/css" href="scholaryhtml/scholarly.css" title="style" />
+</head>
+<body>
+		<article id="what" typeof="schema:ScholarlyArticle" resource="#">
+		  <h1>BaGr (Badge Generator)</h1>
+		  <section>
+			<ol>
+			  <li property="schema:author" typeof="sa:ContributorRole">
+				<a property="schema:author" typeof="schema:Person">
+				  <span property="schema:givenName">Larisa-Iuliana</span>
+				  <span property="schema:familyName">Rachieru</span>
+				</a>
+				<a href="#scienceai" property="sa:roleAffiliation" resource="http://science.ai/">a</a>
+				<sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+				  <a property="schema:email" href="mailto:rachieru.larisa95@gmail.com" title="corresponding author">&#9993;</a>
+				</sup>
+			  </li>
+			  <li property="schema:contributor" typeof="sa:ContributorRole">
+				<a property="schema:author" typeof="schema:Person">
+				  <span property="schema:givenName">Catalina-Elena</span>
+				  <span property="schema:familyName">Caia</span>
+				</a>
+				<a href="#scienceai" property="sa:roleAffiliation" resource="http://science.ai/">a</a>
+				<sup property="sa:roleContactPoint" typeof="schema:ContactPoint">
+				  <a property="schema:email" href="mailto:caia_catalina@yahoo.com" title="corresponding author">&#9993;</a>
+				</sup>
+			  </li>
+			</ol>
+			<ol>
+			  <li id="scienceai">
+				<a href="https://www.info.uaic.ro/bin/Main/" typeof="schema:Corporation">
+				  <span property="schema:name">Universitatea Al.I. Cuza, Facultatea de Informatica</span>
+				</a>
+			  </li>
+			</ol>
+		  </section>
+
+		  <section typeof="sa:Abstract" id="abstract">
+			<h2>Abstract</h2>
+			<p>
+				Sa se conceapa o aplicatie Web capabila sa genereze ecusoane pentru diverse evenimente 
+				(conferinte, ateliere de lucru si altele) si/sau contexte (acces in cadrul unui obiectiv 
+				turistic, semnalarea apartenentei la o organizatie, companie, grup de interes,...), eventual 
+				cu precizarea rolului: vizitator, stagiar, personal administrativ, participant, invitat special, 
+				student, profesor etc. Se va oferi posibilitatea alegerii/editarii unei machete (predefinite sau 
+				specificate de utilizator) de generare a unui set de ecusoane, inclusiv cu precizarea temei vizuale -- 
+				e.g., cromatica, orientare, dimensiuni, fonturi, sigle, URL-uri obligatoriu incluse. Generarea suitei de 
+				ecusoane se va realiza si avand ca date de intrare numele, afilierea si statutul participantilor preluate 
+				dintr-un fisier transferat prin 'upload' in cadrul instrumentului (minimal, vor fi acceptate formatele CSV 
+				si XML). Ecusoanele vor fi disponibile ca documente HTML si sub forma grafica (e.g., PNG). Bonus: ecusoane 
+				generate in format SVG ori incluzand reprezentari QR Code.
+			</p>
+		  </section>
+		  <section typeof="sa:Keywords" id="keywords">
+			<h2>Keywords</h2>
+			<p>
+				data  export/import, PHP, CSV, CSS, JavaScript, HTML5, validare, formular, AJAX, transfer asincron de date
+			</p>		  
+		  </section>
+		  <section typeof="sa:MaterialsAndMethods" id="prezentaresofturi">
+			<h2>Prezentare software utilizat</h2>
+			<p>
+			  Aplicatia de fata a fost realizata cu ajutorul linbajelor de programare HTML, PHP, JavaScript si CSS.
+		  De aceea, in cele ce urmeaza, am pregatit o serie de notiuni cu privire la limbajele folosite.
+			</p>
+			<p>
+			   <b><ins>Generalitati despre limbajul HTML</ins></b>
+			</p>
+			<p>
+			  HyperText Markup Language (HTML) este un limbaj de marcare utilizat pentru crearea paginilor web ce pot fi 
+		  afisate intr-un browser (sau navigator). Scopul HTML este mai degraba prezentarea informatiilor si paragrafe, 
+		  fonturi, tabele s.a.m.d.;  decat descrierea semanticii documentului.
+			</p>
+			<p>
+			  <p>HTML este prescurtarea de la <i>Hyper Text Mark-up Language</i> si este codul care sta la baza paginilor web.</p>
+		  <p>Paginile HTML sunt formate din etichete sau tag-uri si au extensia ".html" sau ".htm". In marea lor majoritate aceste etichete sunt pereche, una de deschidere <code>&lt;eticheta&gt;</code> si alta de inchidere <code>&lt;/eticheta&gt;</code>, mai exista si cazuri in care nu se inchid, atunci se foloseste <code>&lt;eticheta /&gt;</code>. Navigatorul web interpreteaza aceste etichete afisand rezultatul pe ecran. HTML-ul este un limbaj care nu face deosebire intre litere majuscule si minuscule.</p>
+		  <p>Pagina principala a unui domeniu este fisierul "index.html" respectiv "index.htm". Aceasta pagina este setata a fi afisata automat la vizitarea unui domeniu.</p>
+		  <p>De exemplu la vizitarea domeniului www.nume.ro este afisata pagina www.nume.ro/index.html.</p>
+		  <p>Unele etichete permit utilizarea de atribute care pot avea anumite valori:</p>
+		  <pre>
+			 &lt;eticheta atribut="valoare"&gt; ... &lt;/eticheta&gt;
+		  </pre>
+		  <p>Componenta unui document HTML este:</p>
+			<ol>
+			  <li>versiunea HTML a documentului</li>
+			  <li>zona <i>head</i> cu etichetele <code>&lt;head&gt; &lt;/head&gt;</code></li>
+			  <li>zona <i>body</i> cu etichetele <code>&lt;body&gt; &lt;/body&gt;</code> sau <code>&lt;frameset&gt; &lt;/frameset&gt;</code></li>
+			</ol>
+			</p>
+			<p>Toate paginile HTML incep si se termina cu etichetele <code>&lt;html&gt;</code> si <code>&lt;/html&gt;</code>.</p>
+		<p>In interiorul acestor etichete gasim perechile <code>&lt;head&gt;</code>, <code>&lt;/head&gt;</code> si <code>&lt;body&gt;</code>, <code>&lt;/body&gt;</code>.</p>
+		<p><code>head</code> contine titlul paginii intre etichetele <code>&lt;title&gt;</code> si <code>&lt;/title&gt;</code>, descrieri de tip <code>&lt;meta&gt;</code>, stiluri pentru formatarea textului, script-uri si legsturi catre fisiere externe (de exemplu script-uri, fisiere de tip CSS sau <i>favicon</i>).</p>
+		<p>Etichetele de tip <i>meta</i> contin cuvinte cheie, descrierea paginii, date despre autor, informatii utile motoarelor de cautare si au urmatorul format:</p>
+			<pre>
+			  &lt;META NAME="nume" CONTENT="continut"&gt;
+			</pre>
+		<p>Exemplu: link catre un fisier extern CSS:</p>
+			<pre>
+			  &lt;link rel="stylesheet" type="text/css" href="css.css"&gt;
+			</pre>
+		<p><code>body</code> gazduieste practic toate etichetele afisate de browser pe ecran.</p>
+		<p>Exemplu: o pagina HTML cu titlul <i>Exemplu</i> iar continutul <i>Continut pagina</i></p>
+			<pre>
+			  &lt;html&gt;
+			  &lt;head&gt;
+			  &lt;title&gt;Exemplu&lt;/title&gt;
+			  &lt;/head&gt;
+			  &lt;body&gt;
+			  Continut pagina
+			  &lt;/body&gt;
+			  &lt;/html&gt;
+			</pre>
+		<p>Si in HTML poate fi introdus un comentariu, care bineinteles nu va fi afisat de browser:</p>
+			<pre>
+			  &lt;!-- comentariu --&gt;
+			</pre>
+			<p>
+			  <b><ins>Generalitati despre limbajul PHP</ins></b>
+			</p>
+			<p>
+			  PHP este un limbaj de programare. Numele PHP provine din limba engleza si este un acronim recursiv : 
+		  Php: Hypertext Preprocessor. Folosit initial pentru a produce pagini web dinamice, este folosit pe scara 
+		  larga in dezvoltarea paginilor si aplicatiilor web. Se foloseste in principal inglobat in codul HTML, dar 
+		  incepand de la versiunea 4.3.0 se poate folosi si in mod "linie de comanda" (CLI), permitand crearea de aplicatii 
+		  independente. Este unul din cele mai importante limbaje de programare web open-source si server-side, existand 
+		  versiuni disponibile pentru majoritatea web serverelor si pentru toate sistemele de operare. Conform statisticilor 
+		  este instalat pe 20 de milioane de site-uri web si pe 1 milion de servere web. Este disponibil sub Licenta PHP si 
+		  Free Software Foundation il considera a fi un software liber.
+			</p>
+			<p>
+			  <strong><ins>Generalitati despre limbajul JavaScript</ins></strong>
+			</p>
+			<p>
+			  JavaScript (JS) este un limbaj de programare orientat obiect bazat pe conceptul prototipurilor. Este folosit mai 
+			  ales pentru introducerea unor functionalitati in paginile web, codul Javascript din aceste pagini fiind rulat de catre 
+			  browser. Limbajul este binecunoscut pentru folosirea sa in construirea siturilor web, dar este folosit si pentru accesul 
+			  la obiecte incastrate (embedded objects) in alte aplicatii. A fost dezvoltat initial de catre Brendan Eich de la Netscape 
+			  Communications Corporation sub numele de Mocha, apoi LiveScript, si denumit in final JavaScript.
+			</p>
+		    <p>
+			  <strong><ins>CSV</ins></strong>
+			</p>
+			<p>
+				Este un acronim pentru Comma Separated Values. Este un format de fisier nestandard, in care valorile continute sunt 
+				despartite prin virgula, dar nu numai. Separatorul folosit poate fi oricare alt caracter, dar de obicei acesta este 
+				virgula sau caracterul tab.
+			</p>
+			<p>
+				Acest tip de fisier stocheaza date tabulare, de tip caracter sau numere, sub forma de text (plaintext).
+			</p>
+			<p>
+			  <strong><ins>AJAX  (Asynchronous JavaScript and XML)</ins></strong>
+			</p>
+			<p>
+				Este o suita de tehnologii specifica programarii web la nivel de client (client side programming), folosita pentru 
+				transferul asincron de date intre aplicatii si server. Prin AJAX, transferul se face in mod asincron, fara ca aplicatia 
+				sa intre in proces de asteptare pentru finalizarea transferului de date. Odata initiata cererea catre server, aplicatia 
+				continua sa ruleze, iar transferul de date va avea loc in background, in momentul cand acest lucru va fi posibil. Dupa 
+				primirea datelor, aplicatia va fi instiintata ca transferul s-a realizat, iar datele sunt disponibile pentru a fi folosite. 
+				Transferul se face prin obiecte de tip XMLHttpRequest. XML nu este obligatoriu sa fie folosit, in practica formatul JSON 
+				este cel preferat.
+			</p>
+			<p>
+				Tehnologiile AJAX pot fi folosite in combinatie cu HTML si CSS, iar JavaScript si XMLHttpRequest object ofera o metoda de a 
+				schimba date in mod asincron intre browser si server evitand reincarcarea paginilor la finalizarea transferului. 
+				DOM (Document Object Model), accesat cu JavaScript, pentru afisare dinamica a datelor, permite utilizatorului sa 
+				interactioneze cu acestea.
+			</p>
+			<p>
+				AJAX nu este un nou limbaj de programare [1], ci o noua modalitate de a folosi standardele existente. Pe scurt, este arta 
+				de a schimba date cu un server, si a incarca date intr-o pagina web, fara a fi nevoie ca aceasta sa fie reincarcata.
+			</p>
+		  </section>
+		  <section typeof="sa:Results" id="arhitectura">
+			<h2>Arhitectura</h2>
+			<p>Schema modulelor functionale</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/arhitectura aplicatiei.png" width="880" height="655">
+			</figure>
+			<p>
+			  Site-ul va avea pagini pentru fiecare functionalitate. Bara de meniu si Logo vor fi prezente pentru fiecare accesare a site-ului. 
+			</p>
+			<p>
+			  Pagina Home va contine o scurta descriere despre functionalitatea site-ului precum si un buton spre pagina de creare a ecusoanelor.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/home.jpg" width="880" height="655">
+			</figure>
+			<p>
+			  Pagina Despre va contine o descriere mai ampla despe functionalitatea site-ului.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/despre.jpg" width="880" height="655">
+			</figure>
+			<p>
+			  Pagina Creare va contine formularul de completare a datelor ce vor fi puse in ecuson precum si optiunea de a incarca un logo in cadrul 
+			  ecusonului si de asemenea si o optiune de salvare a ecusonului creat. Pagina va contine si un formular in care se va 
+			  putea incarca un fisier cu date ce vor fi prelucrate in ecusoane. De asemenea pagina va mai contine si un scurt istoric al ecusoanelor.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creare.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creare3.jpg" width="880" height="655">
+			</figure>
+			<p>
+			  Pagina Contact ofera posibiltatea de a trimite un mesaj catre administratorul site-ului.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/contact.jpg" width="880" height="655">
+			</figure>
+		 </section>
+		 <section typeof="sa:Results" id="detaliiimplementare">
+			<h2>Detalii de implementare</h2>
+			<p>
+				Pentru navigarea intre pagini se va folosi meniul din header-ul paginii.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/meniu.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/meniucode.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Crearea canvasului.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/canvas.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/canvascode.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/canvas2.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/canvascode2.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Formularului de completare a datelor pentru a crea cate un ecuson pe rand.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creare1.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/formularcrearecode.jpg" width="880" height="655">
+			</figure>
+			<p>
+			<p>
+				Formularului de completare a datelor pentru a crea mai multe ecusoane deodata.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creare3.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/formularcrearecode2.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Formularului de incarcare a logo-ului.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creare2.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/incarcalogocode.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/incarcalogophp.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Formularului de trimitere e-mail.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/contactus.jpg" width="880" height="655">
+			</figure>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/contactuscode.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Functia de salvat toate ecusoanele create din fisierul CSV.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/salveazaecusoane.jpg" width="880" height="655">
+			</figure>
+			<p>
+				Functia de generare a n ecusoane din fisierul CSV.
+			</p>
+			<figure typeof="sa:Image">
+				<img src="scholaryhtml/creareecusonautomat.jpg" width="980" height="755">
+			</figure>
+		 </section>
+		 <section typeof="sa:Concluzii" id="concluzii">
+			<h2>Concluzii</h2>
+			<p>
+				In urma realizarii acestui proiect, se impun unele concluzii.
+			</p>
+			<p>
+				Scopul acestuia, pe langa acela de dezvoltare a unei aplicatii web care sa realizeze ecusoane pentru diferite evenimente, este acela de a aprofunda 
+				cunostintele relative la tehnologiile folosite si intelegerea mecanismelor specifice acestui tip de aplicatii, si nu numai.
+			</p>
+			<p>
+				Autorii au urmarit in special dezvoltarea unei aplicatii simple dar functionale, cu utilizare facila si care sa ofere functionalitati necesare crearii 
+				de ecusoane.
+			</p>
+ 		</section>
+		 <section typeof="sa:Results" id="bibliografie">
+			<h2>Bibliografie</h2>
+		 <p><a href="http://profs.info.uaic.ro/~busaco/teach/courses/web/">1. http://profs.info.uaic.ro/~busaco/teach/courses/web/</a><br></p>
+		 <p><a href="https://www.w3schools.com/">2. https://www.w3schools.com/</a><br></p>
+		 <p><a href="http://php.net/manual/ro/index.php">3. http://php.net/manual/ro/index.php</a></p>
+		 <p>4. Buraga, Sabin. Programarea in Web 2.0. Iasi : Polirom, 2007.</p>
+		 <p>5. Mihaela Brut, Sabin Buraga. Prezentari multimedia pe Web. Limbajele XHTML+TIME si SMIL. Iasi : Polirom, 2004.</p>
+		 </section>
+</body>
+</html>
