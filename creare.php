@@ -45,7 +45,7 @@
 			$_SESSION['searches'] = [];
 		}
 
-	if (!$search->isEmpty() && !in_array($search,$_SESSION['searches'])) {
+		if (!$search->isEmpty()&& !in_array($search,$_SESSION['searches'])) {
 			$_SESSION['searches'][] = $search;
 		}
 	}
@@ -94,6 +94,34 @@
 			return !$this->nume || !$this->prenume || !$this->sex || !$this->rol || !$this->cul || !$this->font || !$this->format;
 		}
 
+		function numeAsObject() {
+			return new DateTime($this->nume);
+		}
+
+		function prenumeAsObject() {
+			return new DateTime($this->prenume);
+		}
+		
+		function sexAsObject() {
+			return new DateTime($this->sex);
+		}
+		
+		function rolAsObject() {
+			return new DateTime($this->rol);
+		}
+		
+		function culAsObject() {
+			return new DateTime($this->cul);
+		}
+		
+		function fontAsObject() {
+			return new DateTime($this->font);
+		}
+		
+		function formatAsObject() {
+			return new DateTime($this->format);
+		}
+
 	}
 
 	?>
@@ -126,14 +154,15 @@
 
 	<!--Afisarea ecusonului-->
 
-	<canvas id="canvas1" width="250" height="330" style="border:1px solid #000000;">
+	<canvas id="canvas1" width="250" height="380" style="border:1px solid #000000;">
 	</canvas>
-	<br><br><br>
+	<br><br>
 	<button onclick="stergedate()">Creaza alt ecuson</button>
 	<button onclick="SaveEcuson1()">Descarca Ecuson</button>
 	<button type="button" onclick="incarcalogo1()">Incarca Logo</button>
-	<br><br><br><br>
+	<br><br>
 
+	
 	<canvas id="canvas2" width="380" height="230" style="border:1px solid #000000;">
 	</canvas>
 	<br><br>
@@ -147,7 +176,7 @@
 	<!--Functia de incarcare a logo-ului in canvas portrait-->
 	<script>
 	var canvas = document.getElementById('canvas1'),
-	context1 = canvas.getContext('2d');
+	context = canvas.getContext('2d');
 
 	make_base();
 
@@ -164,7 +193,7 @@
 	<!--Functia de incarcare a logo-ului in canvas landscape-->
 	<script>
 	var canvas = document.getElementById('canvas2'),
-	context2 = canvas.getContext('2d');
+	context = canvas.getContext('2d');
 
 	make_base();
 
@@ -173,7 +202,7 @@
 	  logo_image = new Image();
 	  logo_image.src = 'uploads/logo.jpg';
 	  logo_image.onload = function(){
-	  context2.drawImage(logo_image, 10, 10, 40, 40);
+	  context.drawImage(logo_image, 10, 10, 40, 40);
 	  }
 	}
 	</script>
@@ -253,14 +282,14 @@
 	   if(document.getElementById("format").value == "portrait") {
 			context1.font ="15px" + ' ' + document.getElementById("font").value;
 			context1.fillStyle = document.getElementById("cul").value;
-			context1.fillText("Nume: ", 30, 190);
-			context1.fillText(document.getElementById("nume").value, 150, 190);
-			context1.fillText("Prenume: ", 30, 210);
-			context1.fillText(document.getElementById("prenume").value, 150, 210);
-			context1.fillText("Sex: ", 30, 230);
-			context1.fillText(document.getElementById("sex").value, 150, 230);
-			context1.fillText("Rol: ", 30, 250);
-			context1.fillText(document.getElementById("rol").value, 150, 250);}
+			context1.fillText("Nume: ", 30, 230);
+			context1.fillText(document.getElementById("nume").value, 150, 230);
+			context1.fillText("Prenume: ", 30, 250);
+			context1.fillText(document.getElementById("prenume").value, 150, 250);
+			context1.fillText("Sex: ", 30, 270);
+			context1.fillText(document.getElementById("sex").value, 150, 270);
+			context1.fillText("Rol: ", 30, 290);
+			context1.fillText(document.getElementById("rol").value, 150, 290);}
 		  else {
 			 context2.font ="15px" + ' ' +  document.getElementById("font").value;
 			 context2.fillStyle = document.getElementById("cul").value;
