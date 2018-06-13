@@ -3,11 +3,11 @@ html
 
 *
 {
-  margin: 5px;
+  margin: 0px;
   padding-top: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
-  padding-left: 5px;
+  padding-left: 0px;
   }
 
 body
@@ -301,4 +301,13 @@ margin-right:auto;
         padding: 3px 5px;
         border: 1px solid #000;
         background: #eee;
+}
+
+#output {
+	margin: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+	
 }
