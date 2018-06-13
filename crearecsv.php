@@ -75,10 +75,11 @@
 			  context.lineWidth = 2;
 			  context.fillStyle = grd;
 			  context.fillRect(0,30,240,70);
-			  context.font = "12px Comic Sans MS";
-			  context.fillStyle = 'black';
-			  context.strokeText("PASS", 100, 70);
-			  context.font ="15px" + ' ' + "<?php echo $_POST['font2']; ?>";
+			  context.font ="30px" + ' ' + "<?php echo $_POST['font2']; ?>";
+			  context.fillStyle = "<?php echo $_POST['cul2']; ?>";
+			  context.fillText("PASS", 90, 75);
+			  //context.strokeText("PASS", 100, 70);
+			  context.font ="12px" + ' ' + "<?php echo $_POST['font2']; ?>";
 			  context.fillStyle = "<?php echo $_POST['cul2']; ?>";
 			  let pos = 180;
 			  for (let key in line) {
@@ -103,9 +104,10 @@
 			  context.lineWidth = 2;
 			  context.fillStyle = grd;
 			  context.fillRect(0,30,380,70);
-			  context.font = "12px Comic Sans MS";
-			  context.fillStyle = 'black';
-			  context.strokeText("PASS", 170, 70);
+			  context.font ="30px" + ' ' + "<?php echo $_POST['font2']; ?>";
+			  context.fillStyle = "<?php echo $_POST['cul2']; ?>";
+			  context.fillText("PASS", 160, 70);
+			  //context.strokeText("PASS", 160, 60);
 			  context.font ="15px" + ' ' + "<?php echo $_POST['font2']; ?>";
 			  context.fillStyle = "<?php echo $_POST['cul2']; ?>";
 			  let pos = 130;
