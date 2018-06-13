@@ -93,35 +93,6 @@
 		function isEmpty() {
 			return !$this->nume || !$this->prenume || !$this->sex || !$this->rol || !$this->cul || !$this->font || !$this->format;
 		}
-
-		function numeAsObject() {
-			return new DateTime($this->nume);
-		}
-
-		function prenumeAsObject() {
-			return new DateTime($this->prenume);
-		}
-		
-		function sexAsObject() {
-			return new DateTime($this->sex);
-		}
-		
-		function rolAsObject() {
-			return new DateTime($this->rol);
-		}
-		
-		function culAsObject() {
-			return new DateTime($this->cul);
-		}
-		
-		function fontAsObject() {
-			return new DateTime($this->font);
-		}
-		
-		function formatAsObject() {
-			return new DateTime($this->format);
-		}
-
 	}
 
 	?>
