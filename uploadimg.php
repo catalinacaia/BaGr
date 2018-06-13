@@ -17,7 +17,6 @@ include("creare.html");
         $uploadOk = 0;
     }
 }
-
 // Verifica dimensiunea imaginii
 if ($_FILES["fileToUpload"]["size"] > 500000) {
     //echo "Sorry, your file is too large.";
@@ -26,12 +25,10 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 // Permite incarcarea doar a anumitor formate
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-
     $uploadOk = 0;
 }
 // Verifica daca $uploadOk este setat pe 0 de o eroare
 if ($uploadOk == 0) {
-
 // Se face incarcarea imaginii pe server
 } else {
     if (move_uploaded_file($tmp_name, $new_name)) {
