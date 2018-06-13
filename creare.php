@@ -45,7 +45,7 @@
 			$_SESSION['searches'] = [];
 		}
 
-		if (!$search->isEmpty()&& !in_array($search,$_SESSION['searches'])) {
+	if (!$search->isEmpty() && !in_array($search,$_SESSION['searches'])) {
 			$_SESSION['searches'][] = $search;
 		}
 	}
@@ -93,7 +93,7 @@
 		function isEmpty() {
 			return !$this->nume || !$this->prenume || !$this->sex || !$this->rol || !$this->cul || !$this->font || !$this->format;
 		}
-
+		
 		function numeAsObject() {
 			return new DateTime($this->nume);
 		}
@@ -101,7 +101,7 @@
 		function prenumeAsObject() {
 			return new DateTime($this->prenume);
 		}
-		
+	
 		function sexAsObject() {
 			return new DateTime($this->sex);
 		}
@@ -154,16 +154,15 @@
 
 	<!--Afisarea ecusonului-->
 
-	<canvas id="canvas1" width="250" height="380" style="border:1px solid #000000;">
+	<canvas id="canvas1" width="250" height="330" style="border:1px solid #000000;">
 	</canvas>
-	<br><br>
+	<br><br><br>
 	<button onclick="stergedate()">Creaza alt ecuson</button>
 	<button onclick="SaveEcuson1()">Descarca Ecuson</button>
 	<button type="button" onclick="incarcalogo1()">Incarca Logo</button>
-	<br><br>
+	<br><br><br><br>
 
-	
-	<canvas id="canvas2" width="380" height="230" style="border:1px solid #000000;">
+	<canvas id="canvas2" width="380" height="250" style="border:1px solid #000000;">
 	</canvas>
 	<br><br>
 	<button onclick="stergedate()">Creaza alt ecuson</button>
@@ -176,7 +175,7 @@
 	<!--Functia de incarcare a logo-ului in canvas portrait-->
 	<script>
 	var canvas = document.getElementById('canvas1'),
-	context = canvas.getContext('2d');
+	context1 = canvas.getContext('2d');
 
 	make_base();
 
@@ -193,7 +192,7 @@
 	<!--Functia de incarcare a logo-ului in canvas landscape-->
 	<script>
 	var canvas = document.getElementById('canvas2'),
-	context = canvas.getContext('2d');
+	context2 = canvas.getContext('2d');
 
 	make_base();
 
@@ -202,7 +201,7 @@
 	  logo_image = new Image();
 	  logo_image.src = 'uploads/logo.jpg';
 	  logo_image.onload = function(){
-	  context.drawImage(logo_image, 10, 10, 40, 40);
+	  context2.drawImage(logo_image, 10, 10, 40, 40);
 	  }
 	}
 	</script>
@@ -239,7 +238,7 @@
 	var c = document.getElementById("canvas1");
 	var context = c.getContext("2d");
 	context.fillStyle = '#fff';
-	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.fillRect(0, 0, 250, 330);
 	// Create gradient
 	var grd = context.createLinearGradient(10,10,200,0);
 	grd.addColorStop(0,"#00BFFF");
@@ -247,9 +246,6 @@
 	// Fill with gradient
 	context.fillStyle = grd;
 	context.fillRect(0,60,250,70);
-	context.font = "30px Comic Sans MS";
-	context.fillStyle = 'black';
-	context.strokeText("PASS: ", 80, 110);
 	</script>
 
 	<!--Creaza ecusonul landscape-->
@@ -257,17 +253,14 @@
 	var c = document.getElementById("canvas2");
 	var context = c.getContext("2d");
 	context.fillStyle = '#fff';
-	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.fillRect(0, 0, 380, 250);
 	// Create gradient
 	var grd = context.createLinearGradient(10,10,200,0);
 	grd.addColorStop(0,"#00BFFF");
 	context.lineWidth = 2;
 	// Fill with gradient
 	context.fillStyle = grd;
-	context.fillRect(0,30,380,70);
-	context.font = "30px Comic Sans MS";
-	context.fillStyle = 'black';
-	context.strokeText("PASS: ", 140, 80);
+	context.fillRect(0,40,380,70);
 	</script>
 
 	<!--Completeaza datele in ecuson-->
@@ -280,27 +273,31 @@
 		var context2 = canvas2.getContext("2d");
 	   
 	   if(document.getElementById("format").value == "portrait") {
+		    context1.fillStyle = document.getElementById("cul").value;
+			context1.font ="30px" + ' ' + document.getElementById("font").value;
+			context1.fillText("PASS", 90, 110);
 			context1.font ="15px" + ' ' + document.getElementById("font").value;
-			context1.fillStyle = document.getElementById("cul").value;
-			context1.fillText("Nume: ", 30, 230);
-			context1.fillText(document.getElementById("nume").value, 150, 230);
-			context1.fillText("Prenume: ", 30, 250);
-			context1.fillText(document.getElementById("prenume").value, 150, 250);
-			context1.fillText("Sex: ", 30, 270);
-			context1.fillText(document.getElementById("sex").value, 150, 270);
-			context1.fillText("Rol: ", 30, 290);
-			context1.fillText(document.getElementById("rol").value, 150, 290);}
+			context1.fillText("Nume: ", 30, 190);
+			context1.fillText(document.getElementById("nume").value, 150, 190);
+			context1.fillText("Prenume: ", 30, 210);
+			context1.fillText(document.getElementById("prenume").value, 150, 210);
+			context1.fillText("Sex: ", 30, 230);
+			context1.fillText(document.getElementById("sex").value, 150, 230);
+			context1.fillText("Rol: ", 30, 250);
+			context1.fillText(document.getElementById("rol").value, 150, 250);}
 		  else {
-			 context2.font ="15px" + ' ' +  document.getElementById("font").value;
 			 context2.fillStyle = document.getElementById("cul").value;
-			 context2.fillText("Nume: ", 40, 130);
-			 context2.fillText(document.getElementById("nume").value, 160, 130);
-			 context2.fillText("Prenume: ", 40, 150);
-			 context2.fillText(document.getElementById("prenume").value, 160, 150);
-			 context2.fillText("Sex: ", 40, 170);
-			 context2.fillText(document.getElementById("sex").value, 160, 170);
-			 context2.fillText("Rol: ", 40, 190);
-			 context2.fillText(document.getElementById("rol").value, 160, 190);}
+			 context2.font ="30px" + ' ' + document.getElementById("font").value;
+			 context2.fillText("PASS", 140, 85);
+			 context2.font ="15px" + ' ' +  document.getElementById("font").value;
+			 context2.fillText("Nume: ", 40, 150);
+			 context2.fillText(document.getElementById("nume").value, 160, 150);
+			 context2.fillText("Prenume: ", 40, 170);
+			 context2.fillText(document.getElementById("prenume").value, 160, 170);
+			 context2.fillText("Sex: ", 40, 190);
+			 context2.fillText(document.getElementById("sex").value, 160, 190);
+			 context2.fillText("Rol: ", 40, 210);
+			 context2.fillText(document.getElementById("rol").value, 160, 210);}
 	}
 	</script>
 	<br><br><br><br>
