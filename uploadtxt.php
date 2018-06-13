@@ -6,8 +6,8 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if csv file is a actual csv or fake csv
 if(isset($_POST["submit"])) {
 include("creare.html");
-    $tmp_name = $_FILES["csv"]["tmp_name"];
-	$new_name = "uploads/".test.".csv";
+    $tmp_name = $_FILES["txt"]["tmp_name"];
+	$new_name = "uploads/".test.".txt";
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         //echo "File is an csv - " . $check["mime"] . ".";
