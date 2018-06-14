@@ -25,6 +25,7 @@
 		  </div>
 		</div>
 	<div id="site_content">
+	<div id="banner"></div>
 	<!--Formular de completare date-->
 	<div id="wrapper">
 	<div class="row">
