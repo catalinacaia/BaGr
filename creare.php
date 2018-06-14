@@ -161,7 +161,7 @@
 
 	<!--Formular incarcare logo-->
 	<form action="uploadimg.php" method="post" enctype="multipart/form-data">
-		Selectati logo (format acceptat .jpg):
+		Selectati logo (format acceptat .png):
 		<input type="file" name="fileToUpload" id="fileToUpload">
 		<input type="submit" value="Upload Logo" name="submit">
 	</form>
@@ -196,7 +196,7 @@
 	function incarcalogo1()
 	{
 	  logo_image = new Image();
-	  logo_image.src = 'uploads/logo.jpg';
+	  logo_image.src = 'uploads/logo.png';
 	  logo_image.onload = function(){
 	  context1.drawImage(logo_image, 10, 10, 40, 40);
 	  }
@@ -211,7 +211,7 @@
 	function incarcalogo2()
 	{
 	  logo_image = new Image();
-	  logo_image.src = 'uploads/logo.jpg';
+	  logo_image.src = 'uploads/logo.png';
 	  logo_image.onload = function(){
 	  context2.drawImage(logo_image, 10, 10, 40, 40);
 	  }

@@ -7,7 +7,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if(isset($_POST["submit"])) {
 include("creare.php");
     $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-	$new_name = "uploads/"."logo".".jpg";
+	$new_name = "uploads/"."logo".".png";
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         //echo "File is an image - " . $check["mime"] . ".";
