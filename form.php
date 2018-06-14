@@ -10,9 +10,11 @@
 								<input id="rol" type="text" name="rol" required value="<?php echo $search->rol ?>">
 				     </div><br><br>
 		Culoare text:<br><input type="color" name="cul" id="cul" value="<?php echo $search->cul ?>"><br><br>
-		Font ecuson:<br><div class="autocomplete" style="width:300px;">
+		Font text:<br><div class="autocomplete" style="width:300px;">
 								<input id="font" type="text" name="font" required value="<?php echo $search->font ?>">
 				     </div><br><br>
+		Culoare ecuson:<br><input type="color" name="cul1" id="cul1" value="<?php echo $search->cul1 ?>"><br><br>
+		Culoare border PASS:<br><input type="color" name="cul2" id="cul2" value="<?php echo $search->cul2 ?>"><br><br>
 		Format ecuson (portrait or landscape):<br><div class="autocomplete" style="width:300px;">
 								<input id="format" type="text" name="format" required value="<?php echo $search->format ?>">
 				       </div><br><br>
