@@ -1,38 +1,13 @@
-<?php
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if csv file is a actual csv or fake csv
-if(isset($_POST["submit"])) {
-include("creare.html");
-    $tmp_name = $_FILES["txt"]["tmp_name"];
-	$new_name = "uploads/".test.".txt";
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        //echo "File is an csv - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an csv.";
-        $uploadOk = 0;
+<?PHP
+  include("creare.php");
+  if(!empty($_FILES['uploaded_file']))
+  {
+    //$path = "uploads/";
+    $path = "uploads/"."fisier".".txt";
+    if(move_uploaded_file($_FILES['uploaded_file']['tmp_name'], $path)) {
+      echo "The file has been uploaded";
+    } else{
+        echo "There was an error uploading the file, please try again!";
     }
-}
-
-// Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    //echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
-
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($tmp_name, $new_name)) {
-
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-}
+  }
 ?>
