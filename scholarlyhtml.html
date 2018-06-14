@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="ro">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
@@ -39,6 +40,7 @@
 			  </li>
 			</ol>
 		  </section>
+		</article>  
 
 		  <section typeof="sa:Abstract" id="abstract">
 			<h2>Abstract</h2>
@@ -91,7 +93,6 @@
 			  <li>zona <i>head</i> cu etichetele <code>&lt;head&gt; &lt;/head&gt;</code></li>
 			  <li>zona <i>body</i> cu etichetele <code>&lt;body&gt; &lt;/body&gt;</code> sau <code>&lt;frameset&gt; &lt;/frameset&gt;</code></li>
 			</ol>
-			</p>
 			<p>Toate paginile HTML incep si se termina cu etichetele <code>&lt;html&gt;</code> si <code>&lt;/html&gt;</code>.</p>
 		<p>In interiorul acestor etichete gasim perechile <code>&lt;head&gt;</code>, <code>&lt;/head&gt;</code> si <code>&lt;body&gt;</code>, <code>&lt;/body&gt;</code>.</p>
 		<p><code>head</code> contine titlul paginii intre etichetele <code>&lt;title&gt;</code> si <code>&lt;/title&gt;</code>, descrieri de tip <code>&lt;meta&gt;</code>, stiluri pentru formatarea textului, script-uri si legsturi catre fisiere externe (de exemplu script-uri, fisiere de tip CSS sau <i>favicon</i>).</p>
@@ -180,7 +181,8 @@
 			<h2>Arhitectura</h2>
 			<p>Schema modulelor functionale</p>
 			<figure typeof="sa:Image">
-				<img src="scholaryhtml/arhitectura aplicatiei.png" width="880" height="655">
+				<img src="scholaryhtml/arhitecturaaplicatiei.jpg" width="880" height="655">
+				<figcaption>Arhitectura aplicatie</figcaption>
 			</figure>
 			<p>
 			  Site-ul va avea pagini pentru fiecare functionalitate. Bara de meniu si Logo vor fi prezente pentru fiecare accesare a site-ului. 
@@ -190,12 +192,14 @@
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/home.jpg" width="880" height="655">
+				<figcaption>Pagina principala</figcaption>
 			</figure>
 			<p>
 			  Pagina Despre va contine o descriere mai ampla despe functionalitatea site-ului.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/despre.jpg" width="880" height="655">
+				<figcaption>Pagina cu informatii despre site</figcaption>
 			</figure>
 			<p>
 			  Pagina Creare va contine formularul de completare a datelor ce vor fi puse in ecuson precum si optiunea de a incarca un logo in cadrul 
@@ -204,15 +208,18 @@
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/creare.jpg" width="880" height="655">
+				<figcaption>Pagina de creare</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/creare3.jpg" width="880" height="655">
+				<figcaption>Formular de introducere a datele pentru crearea automata</figcaption>
 			</figure>
 			<p>
 			  Pagina Contact ofera posibiltatea de a trimite un mesaj catre administratorul site-ului.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/contact.jpg" width="880" height="655">
+				<figcaption>Pagina de contact</figcaption>
 			</figure>
 		 </section>
 		 <section typeof="sa:Results" id="detaliiimplementare">
@@ -221,34 +228,42 @@
 				Pentru navigarea intre pagini se va folosi meniul din header-ul paginii.
 			</p>
 			<figure typeof="sa:Image">
-				<img src="scholaryhtml/meniu.jpg" width="880" height="655">
+				<img src="scholaryhtml/meniu.jpg" width="880" height="255">
+				<figcaption>Meniul de navigare intre pagini</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/meniucode.jpg" width="880" height="655">
+				<figcaption>Codul de creare al meniului</figcaption>
 			</figure>
 			<p>
 				Crearea canvasului.
 			</p>
 			<figure typeof="sa:Image">
-				<img src="scholaryhtml/canvas.jpg" width="880" height="655">
+				<img src="scholaryhtml/canvas.jpg" width="680" height="655">
+				<figcaption>Ecuson in format portrait</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/canvascode.jpg" width="880" height="655">
+				<figcaption>Cod ecuson in format portrait</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
-				<img src="scholaryhtml/canvas2.jpg" width="880" height="655">
+				<img src="scholaryhtml/canvas2.jpg" width="980" height="455">
+				<figcaption>Ecuson in format landscape</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/canvascode2.jpg" width="880" height="655">
+				<figcaption>Cod ecuson in format landscape</figcaption>
 			</figure>
 			<p>
 				Formularului de completare a datelor pentru a crea cate un ecuson pe rand.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/creare1.jpg" width="880" height="655">
+				<figcaption>Formular de introducere a datele</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/formularcrearecode.jpg" width="880" height="655">
+				<figcaption>Cod pentru formularul de introducere a datele</figcaption>
 			</figure>
 			<p>
 			<p>
@@ -256,42 +271,47 @@
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/creare3.jpg" width="880" height="655">
+				<figcaption>Formular de introducere a datele pentru crearea automata</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/formularcrearecode2.jpg" width="880" height="655">
+				<figcaption>Cod pentru formularul de introducere a datele pentru crearea automata</figcaption>
 			</figure>
 			<p>
 				Formularului de incarcare a logo-ului.
 			</p>
 			<figure typeof="sa:Image">
-				<img src="scholaryhtml/creare2.jpg" width="880" height="655">
+				<img src="scholaryhtml/creare2.jpg" width="880" height="355">
+				<figcaption>Formular de upload al logo-ului</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/incarcalogocode.jpg" width="880" height="655">
-			</figure>
-			<figure typeof="sa:Image">
-				<img src="scholaryhtml/incarcalogophp.jpg" width="880" height="655">
+				<figcaption>Cod pentru formularul de upload al logo-ului</figcaption>
 			</figure>
 			<p>
 				Formularului de trimitere e-mail.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/contactus.jpg" width="880" height="655">
+				<figcaption>Formularul de trimitere e-mail</figcaption>
 			</figure>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/contactuscode.jpg" width="880" height="655">
+				<figcaption>Cod pentru formularul de trimitere e-mail</figcaption>
 			</figure>
 			<p>
 				Functia de salvat toate ecusoanele create din fisierul CSV.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/salveazaecusoane.jpg" width="880" height="655">
+				<figcaption>Functia de salvat toate ecusoanele create din fisierul CSV</figcaption>
 			</figure>
 			<p>
 				Functia de generare a n ecusoane din fisierul CSV.
 			</p>
 			<figure typeof="sa:Image">
 				<img src="scholaryhtml/creareecusonautomat.jpg" width="980" height="755">
+				<figcaption>Functia de generare a n ecusoane din fisierul CSV</figcaption>
 			</figure>
 		 </section>
 		 <section typeof="sa:Concluzii" id="concluzii">
