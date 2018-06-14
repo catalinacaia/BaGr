@@ -1,3 +1,8 @@
+<form enctype="multipart/form-data" action="uploadtxt.php" method="POST">
+    <p>Selectati fisierul cu datele pentru ecusoane (format acceptat .txt):</p>
+    <input type="file" name="uploaded_file"></input><br />
+    <input type="submit" value="Upload"></input>
+ </form>
 <form method="POST" autocomplete="off" action="crearecsv.php">
 	<h3>Creaza ecusoane</h3>
 	<label>
@@ -8,9 +13,9 @@
 								<input id="format2" type="text" name="format2" required value="">
 				       </div><br><br>
 		Culoare text:<br><input id="cul2" type="color" name="cul2"><br>
-		Selectati fisierul cu datele pentru ecusoane (format acceptat .txt):
-		<input type="file" name="fileToUpload" id="fileToUpload">
-		<input type="submit" value="Upload Fisier" name="submit"><br>
+		Culoare ecuson:<br><input type="color" name="cul3" id="cul3" value="<?php echo $search->cul3 ?>"><br><br>
+		Culoare border PASS:<br><input type="color" name="cul4" id="cul4" value="<?php echo $search->cul4 ?>"><br><br>
+		<input type="submit" value="Creare" name="submit"><br>
 	</label>
 </form>
 
