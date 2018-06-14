@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <title>BaGr (Badge Generator)</title>
   <link rel="stylesheet" type="text/css" href="style/style.css" title="style" />
 </head>
@@ -58,6 +59,8 @@
 		$search->sex = !empty($_GET['sex']) ? $_GET['sex'] : "";
 		$search->rol = !empty($_GET['rol']) ? $_GET['rol'] : "";
 		$search->cul = !empty($_GET['cul']) ? $_GET['cul'] : "";
+		$search->cul1 = !empty($_GET['cul1']) ? $_GET['cul1'] : "";
+		$search->cul2 = !empty($_GET['cul2']) ? $_GET['cul2'] : "";
 		$search->font = !empty($_GET['font']) ? $_GET['font'] : "";
 		$search->format = !empty($_GET['format']) ? $_GET['format'] : "";
 		return $search;
@@ -73,6 +76,8 @@
 		public $sex = "";
 		public $rol = "";
 		public $cul = "";
+		public $cul1 = "";
+		public $cul2 = "";
 		public $font = "";
 		public $format = "";
 
@@ -83,6 +88,8 @@
 					'sex' => $this->sex,
 					'rol'=> $this->rol,
 					'cul'=> $this->cul,
+					'cul1'=> $this->cul1,
+					'cul1'=> $this->cul2,
 					'font'=> $this->font,
 					'format'=> $this->format
 			];
@@ -91,7 +98,7 @@
 		}
 
 		function isEmpty() {
-			return !$this->nume || !$this->prenume || !$this->sex || !$this->rol || !$this->cul || !$this->font || !$this->format;
+			return !$this->nume || !$this->prenume || !$this->sex || !$this->rol || !$this->cul  || !$this->cul1 || !$this->cul2 || !$this->font || !$this->format;
 		}
 		
 		function numeAsObject() {
@@ -114,6 +121,14 @@
 			return new DateTime($this->cul);
 		}
 		
+		function cul1AsObject() {
+			return new DateTime($this->cul1);
+		}
+		
+		function cul2AsObject() {
+			return new DateTime($this->cul2);
+		}
+		
 		function fontAsObject() {
 			return new DateTime($this->font);
 		}
@@ -132,7 +147,7 @@
 		foreach ($searches as $s) {
 		?>
 		 <li><a href="creare.php?<?php echo $s->toQueryString() ?>">
-				<?php echo $s->nume?> - <?php echo $s->prenume?> - <?php echo $s->sex?> - <?php echo $s->rol?> - <?php echo $s->cul?> - <?php echo $s->font?> - <?php echo $s->format?>
+				<?php echo $s->nume?> - <?php echo $s->prenume?> - <?php echo $s->sex?> - <?php echo $s->rol?> - <?php echo $s->cul?> - <?php echo $s->cul1?> - <?php echo $s->cul2?> - <?php echo $s->font?> - <?php echo $s->format?>
 			  </a></li>
 		<?php
 		}
@@ -177,8 +192,6 @@
 	var canvas = document.getElementById('canvas1'),
 	context1 = canvas.getContext('2d');
 
-	make_base();
-
 	function incarcalogo1()
 	{
 	  logo_image = new Image();
@@ -193,8 +206,6 @@
 	<script>
 	var canvas = document.getElementById('canvas2'),
 	context2 = canvas.getContext('2d');
-
-	make_base();
 
 	function incarcalogo2()
 	{
@@ -233,34 +244,19 @@
 	}
 	</script>
 
-	<!--Creaza ecusonul portrait-->
-	<script>
-	var c = document.getElementById("canvas1");
-	var context = c.getContext("2d");
-	context.fillStyle = '#fff';
-	context.fillRect(0, 0, 250, 330);
-	// Create gradient
-	var grd = context.createLinearGradient(10,10,200,0);
-	grd.addColorStop(0,"#00BFFF");
-	context.lineWidth = 2;
-	// Fill with gradient
-	context.fillStyle = grd;
-	context.fillRect(0,60,250,70);
-	</script>
-
 	<!--Creaza ecusonul landscape-->
 	<script>
-	var c = document.getElementById("canvas2");
-	var context = c.getContext("2d");
-	context.fillStyle = '#fff';
-	context.fillRect(0, 0, 380, 250);
+	//var c = document.getElementById("canvas2");
+	//var context = c.getContext("2d");
+	//context.fillStyle = '#fff';
+	//context.fillRect(0, 0, 380, 250);
 	// Create gradient
-	var grd = context.createLinearGradient(10,10,200,0);
-	grd.addColorStop(0,"#00BFFF");
-	context.lineWidth = 2;
+	//var grd = context.createLinearGradient(10,10,200,0);
+	//grd.addColorStop(0,"#00BFFF");
+	//context.lineWidth = 2;
 	// Fill with gradient
-	context.fillStyle = grd;
-	context.fillRect(0,40,380,70);
+	//context.fillStyle = grd;
+	//context.fillRect(0,40,380,70);
 	</script>
 
 	<!--Completeaza datele in ecuson-->
@@ -273,6 +269,14 @@
 		var context2 = canvas2.getContext("2d");
 	   
 	   if(document.getElementById("format").value == "portrait") {
+		    context1.fillStyle = document.getElementById("cul1").value;
+			context1.fillRect(0, 0, 250, 330);
+			var grd = context1.createLinearGradient(10,10,200,0);
+			var cul2 = document.getElementById("cul2").value;
+			grd.addColorStop(0, cul2);
+			context1.fillStyle = grd;
+			context1.fillRect(0,60,250,70);
+			context1.lineWidth = 2;
 		    context1.fillStyle = document.getElementById("cul").value;
 			context1.font ="30px" + ' ' + document.getElementById("font").value;
 			context1.fillText("PASS", 90, 110);
@@ -286,6 +290,14 @@
 			context1.fillText("Rol: ", 30, 250);
 			context1.fillText(document.getElementById("rol").value, 150, 250);}
 		  else {
+			 context2.fillStyle = document.getElementById("cul1").value;
+			 context2.fillRect(0, 0, 380, 250);
+			 var grd = context2.createLinearGradient(10,10,200,0);
+			 var cul2 = document.getElementById("cul2").value;
+			 grd.addColorStop(0, cul2);
+			 context2.fillStyle = grd;
+			 context2.fillRect(0,40,380,70);
+			 context2.lineWidth = 2;
 			 context2.fillStyle = document.getElementById("cul").value;
 			 context2.font ="30px" + ' ' + document.getElementById("font").value;
 			 context2.fillText("PASS", 140, 85);

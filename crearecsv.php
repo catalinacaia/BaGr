@@ -22,10 +22,11 @@
 		</ul>
 	  </div>
 	</div>
-	<div>
+		
+	<div style="text-align:center">
 			<br><br><button onclick="download()">Download</button><br><br><br>
 	</div>
-	<div id="output">
+	<div style="padding-left: 40px; column-count: 3" id="output">
 	<script>	
 	   const output = document.getElementById("output");
 	   let objects = [];
@@ -39,7 +40,7 @@
 					generateView();
 				}
 			}
-			xhttp.open("GET", "test.txt", true);
+			xhttp.open("GET", "uploads/fisier.txt", true);
 			xhttp.send();
 		}
 
@@ -67,11 +68,11 @@
 			  const context = canvas.getContext("2d");
 			  canvas.width  = 240;
 			  canvas.height = 300;
-			  context.fillStyle = '#fff';
+			  context.fillStyle = "<?php echo $_POST['cul3']; ?>";
 			  context.fillRect(0, 0, canvas.width, canvas.height);
 			  canvas.style="border:1px solid #000000;";
 			  var grd = context.createLinearGradient(10,10,200,0);
-			  grd.addColorStop(0,"#00BFFF");
+			  grd.addColorStop(0,"<?php echo $_POST['cul4']; ?>");
 			  context.lineWidth = 2;
 			  context.fillStyle = grd;
 			  context.fillRect(0,30,240,70);
@@ -84,7 +85,7 @@
 			  let pos = 180;
 			  for (let key in line) {
 					if (line.hasOwnProperty(key)) {
-					  context.fillText(`${key.toUpperCase()}:`, 30, pos);
+					  context.fillText(`${key}:`, 30, pos);
 					  context.fillText(line[key], 150, pos);
 					  pos += 20;
 					}
@@ -96,11 +97,11 @@
 			  const context = canvas.getContext("2d");
 			  canvas.width  = 380;
 			  canvas.height = 230;
-			  context.fillStyle = '#fff';
+			  context.fillStyle = "<?php echo $_POST['cul3']; ?>";
 			  context.fillRect(0, 0, canvas.width, canvas.height);
 			  canvas.style="border:1px solid #000000;";
 			  var grd = context.createLinearGradient(10,10,200,0);
-			  grd.addColorStop(0,"#00BFFF");
+			  grd.addColorStop(0,"<?php echo $_POST['cul4']; ?>");
 			  context.lineWidth = 2;
 			  context.fillStyle = grd;
 			  context.fillRect(0,30,380,70);
@@ -113,7 +114,7 @@
 			  let pos = 130;
 			  for (let key in line) {
 					if (line.hasOwnProperty(key)) {
-					  context.fillText(`${key.toUpperCase()}:`, 40, pos);
+					  context.fillText(`${key}:`, 40, pos);
 					  context.fillText(line[key], 160, pos);
 					  pos += 20;
 					}
